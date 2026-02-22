@@ -58,3 +58,12 @@ The Contact page SHALL include a brief, plain-English notice informing users how
 #### Scenario: Data use notice present
 - **WHEN** a user views the contact form
 - **THEN** a short notice SHALL be visible near the submit button stating that submitted information will be used only to respond to the enquiry and will not be shared with third parties
+
+---
+
+### Requirement: Alternating section backgrounds on contact page
+Content sections on `contact.html` SHALL alternate between `bg-white` and `bg-gray-50`.
+
+#### Scenario: Section backgrounds alternate
+- **WHEN** `contact.html` is rendered
+- **THEN** consecutive content sections SHALL have alternating background colours

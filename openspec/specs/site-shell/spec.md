@@ -40,11 +40,19 @@ The Inter font SHALL be served from `docs/assets/fonts/` using `@font-face` decl
 ---
 
 ### Requirement: Company logo asset
-The VaultLLM logo PNG SHALL be stored at `docs/assets/images/logo.png` and referenced by a relative path in every page header.
+The VaultLLM logo SHALL be provided as three SVG variants: `logo-horizontal.svg` (header use), `logo.svg` (stacked, hero/footer contexts), and `logo-icon.svg` (icon only, footer). The PNG file `logo.png` is superseded. Every page header SHALL reference `logo-horizontal.svg`.
 
-#### Scenario: Logo renders in navigation
+#### Scenario: Header logo uses horizontal SVG
 - **WHEN** any page is loaded
-- **THEN** the `<img>` tag for the logo SHALL have a valid `src` pointing to `assets/images/logo.png`, an `alt` of "VaultLLM", and explicit `width` and `height` attributes to prevent layout shift
+- **THEN** the `<img>` tag in the header SHALL have `src` pointing to `assets/images/logo-horizontal.svg`, an `alt` of "VaultLLM", and class `h-10 w-auto block`
+
+#### Scenario: Footer uses icon-only SVG
+- **WHEN** any page is loaded
+- **THEN** the `<img>` tag in the footer SHALL reference `assets/images/logo-icon.svg` at 28–32px
+
+#### Scenario: No white background artefact
+- **WHEN** any page header is rendered on the navy background
+- **THEN** the logo SHALL display without a white box or background colour around it
 
 ---
 
@@ -93,3 +101,12 @@ All pages SHALL be fully usable on viewports from 320px (mobile) to 1440px (desk
 #### Scenario: Readable at desktop widths
 - **WHEN** a page is viewed at 1440px viewport width
 - **THEN** content SHALL be constrained to a maximum width container (e.g. `max-w-6xl mx-auto`) and remain centred
+
+---
+
+### Requirement: Alternating section backgrounds
+Content sections (not hero, not CTA) across all pages SHALL alternate between `bg-white` and `bg-gray-50` to provide visual separation without imagery.
+
+#### Scenario: Adjacent sections have different backgrounds
+- **WHEN** two consecutive content sections are rendered on any page
+- **THEN** they SHALL NOT both have the same background colour class

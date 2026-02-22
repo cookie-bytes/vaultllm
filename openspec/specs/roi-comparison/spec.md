@@ -54,3 +54,12 @@ The ROI page SHALL include a CTA at the bottom of the page inviting the user to 
 #### Scenario: CTA links to contact page
 - **WHEN** a user reaches the bottom of the ROI page
 - **THEN** a button or link SHALL navigate to `/contact.html`
+
+---
+
+### Requirement: Alternating section backgrounds on ROI page
+Content sections on `roi.html` SHALL alternate between `bg-white` and `bg-gray-50`.
+
+#### Scenario: Section backgrounds alternate
+- **WHEN** `roi.html` is rendered
+- **THEN** consecutive content sections SHALL have alternating background colours
