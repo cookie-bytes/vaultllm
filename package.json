@@ -1,0 +1,31 @@
+{
+  "name": "vaultllm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cookie-bytes/vaultllm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cookie-bytes/vaultllm/issues"
+  },
+  "homepage": "https://github.com/cookie-bytes/vaultllm#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.24",
+    "postcss": "^8.5.6"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.2.0"
+  }
+}
