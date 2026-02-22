@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact VaultLLM — Book a Discovery Call</title>
+  <meta name="description" content="Get in touch with VaultLLM to discuss private AI for your practice. We respond within one business day.">
+  <link rel="canonical" href="https://vaultllm.uk/contact.html">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <link href="assets/css/fonts.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:   '#0B1F3A',
+            walnut: '#A0785A',
+            teal:   '#00C8C8',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+    <!-- SHARED HEADER — update all pages when changing -->
+  <header class="bg-navy text-white sticky top-0 z-50 border-b border-white/10" x-data="{ open: false }">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <a href="index.html" class="flex-shrink-0 hover:opacity-85 transition-opacity">
+        <img src="assets/images/logo.svg" alt="VaultLLM" class="h-10 w-auto block">
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+        <a href="index.html" class="px-3 py-1.5 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">Home</a>
+        <a href="services.html" class="px-3 py-1.5 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">Services</a>
+        <a href="roi.html" class="px-3 py-1.5 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">ROI</a>
+        <a href="faq.html" class="px-3 py-1.5 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">FAQ</a>
+        <a href="contact.html" class="ml-3 bg-teal text-navy font-semibold px-4 py-1.5 rounded-md hover:bg-teal/90 transition-colors">Contact</a>
+      </nav>
+      <button @click="open = !open" class="md:hidden p-2 rounded-md hover:bg-white/10 transition-colors" aria-label="Toggle navigation menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div x-show="open" x-transition class="md:hidden border-t border-white/10 px-4 pb-4">
+      <nav class="flex flex-col gap-1 pt-3 text-sm font-medium">
+        <a href="index.html" class="px-3 py-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">Home</a>
+        <a href="services.html" class="px-3 py-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">Services</a>
+        <a href="roi.html" class="px-3 py-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">ROI</a>
+        <a href="faq.html" class="px-3 py-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">FAQ</a>
+        <a href="contact.html" class="mt-1 px-3 py-2 rounded-md bg-teal text-navy font-semibold">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Page Hero -->
+    <section class="bg-navy text-white py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-teal text-sm font-semibold uppercase tracking-widest mb-3">Get in Touch</p>
+        <h1 class="text-4xl font-semibold mb-4">Book a Discovery Call</h1>
+        <p class="text-white/70 text-lg max-w-2xl">Tell us about your practice and we'll explain exactly how a private AI node would work for you. No jargon. No commitment.</p>
+      </div>
+    </section>
+
+    <!-- Contact Form + Info -->
+    <section class="py-20 px-4 bg-white">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-5 gap-12 items-start">
+
+        <!-- Form column -->
+        <div class="md:col-span-3"
+          x-data="{
+            status: 'idle',
+            errorMsg: '',
+            async submit(e) {
+              e.preventDefault();
+              this.status = 'submitting';
+              const form = e.target;
+              const data = Object.fromEntries(new FormData(form));
+              try {
+                const res = await fetch(form.action, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                  body: JSON.stringify(data)
+                });
+                if (res.ok) {
+                  this.status = 'success';
+                } else {
+                  this.status = 'error';
+                  this.errorMsg = 'Something went wrong. Please try again or email us directly.';
+                }
+              } catch {
+                this.status = 'error';
+                this.errorMsg = 'Could not send your message. Please check your connection or email us directly.';
+              }
+            }
+          }">
+
+          <!-- Success state -->
+          <div x-show="status === 'success'" class="bg-teal/5 border border-teal/20 rounded-xl p-8 text-center">
+            <div class="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h2 class="text-navy font-semibold text-lg mb-2">Message received — thank you.</h2>
+            <p class="text-gray-500 text-sm">We typically respond within one business day. If your matter is urgent, call us or email <a href="mailto:enquiries@vaultllm.uk" class="text-teal underline">enquiries@vaultllm.uk</a> directly.</p>
+          </div>
+
+          <!-- Form -->
+          <form x-show="status !== 'success'"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            @submit="submit"
+            class="space-y-5">
+
+            <input type="hidden" name="_replyto" value="">
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="name" class="block text-sm font-medium text-navy mb-1.5">Full Name <span class="text-red-400">*</span></label>
+                <input type="text" id="name" name="name" required
+                  placeholder="Jane Smith"
+                  class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal/40 focus:border-teal/40">
+              </div>
+              <div>
+                <label for="company" class="block text-sm font-medium text-navy mb-1.5">Company / Practice <span class="text-red-400">*</span></label>
+                <input type="text" id="company" name="company" required
+                  placeholder="Smith &amp; Co Solicitors"
+                  class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal/40 focus:border-teal/40">
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="email" class="block text-sm font-medium text-navy mb-1.5">Email Address <span class="text-red-400">*</span></label>
+                <input type="email" id="email" name="email" required
+                  placeholder="jane@smithsolicitors.co.uk"
+                  class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal/40 focus:border-teal/40">
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-navy mb-1.5">Phone Number <span class="text-gray-400 font-normal">(optional)</span></label>
+                <input type="tel" id="phone" name="phone"
+                  placeholder="07700 900 000"
+                  class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal/40 focus:border-teal/40">
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-navy mb-1.5">Message <span class="text-red-400">*</span></label>
+              <textarea id="message" name="message" required rows="5"
+                placeholder="Tell us about your practice, team size, and what you're hoping to achieve with private AI…"
+                class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal/40 focus:border-teal/40 resize-none"></textarea>
+            </div>
+
+            <!-- Error message -->
+            <div x-show="status === 'error'" class="bg-red-50 border border-red-100 rounded-lg px-4 py-3 text-red-600 text-sm" x-text="errorMsg"></div>
+
+            <!-- GDPR notice -->
+            <p class="text-gray-400 text-xs leading-relaxed">
+              By submitting this form, you agree that the information provided will be used solely to respond to your enquiry. Your details will not be shared with any third parties. See our <a href="privacy.html" class="underline hover:text-teal transition-colors">Privacy Policy</a> for full details.
+            </p>
+
+            <button type="submit"
+              :disabled="status === 'submitting'"
+              class="bg-teal text-navy font-semibold px-8 py-3 rounded-lg hover:bg-teal/90 transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed w-full sm:w-auto">
+              <span x-show="status !== 'submitting'">Send Message</span>
+              <span x-show="status === 'submitting'">Sending…</span>
+            </button>
+
+          </form>
+        </div>
+
+        <!-- Contact info column -->
+        <div class="md:col-span-2 space-y-8">
+          <div>
+            <h2 class="text-navy font-semibold text-lg mb-4">Contact details</h2>
+            <div class="space-y-4 text-sm">
+              <div class="flex gap-3 items-start">
+                <svg class="w-5 h-5 text-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <div>
+                  <p class="text-gray-400 text-xs mb-1">Email</p>
+                  <a href="mailto:enquiries@vaultllm.uk" class="text-navy font-medium hover:text-teal transition-colors">enquiries@vaultllm.uk</a>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <svg class="w-5 h-5 text-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                  <p class="text-gray-400 text-xs mb-1">Response time</p>
+                  <p class="text-navy font-medium">Within one business day</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <svg class="w-5 h-5 text-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <div>
+                  <p class="text-gray-400 text-xs mb-1">Location</p>
+                  <p class="text-navy font-medium">United Kingdom</p>
+                  <p class="text-gray-400 text-xs mt-0.5">UK-based engineers. We serve clients across England, Scotland, and Wales.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+            <h3 class="text-navy font-semibold text-sm mb-3">What to expect from a discovery call</h3>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex gap-2"><span class="text-teal">✓</span> 30 minutes, no obligation</li>
+              <li class="flex gap-2"><span class="text-teal">✓</span> We'll ask about your team and workflows</li>
+              <li class="flex gap-2"><span class="text-teal">✓</span> We'll explain exactly how the hardware works</li>
+              <li class="flex gap-2"><span class="text-teal">✓</span> You'll receive a written proposal within 48 hours</li>
+              <li class="flex gap-2"><span class="text-teal">✓</span> No sales pressure — just a straightforward conversation</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SHARED FOOTER — update all pages when changing -->
+  <footer class="bg-navy text-white">
+    <div class="max-w-6xl mx-auto px-4 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+        <div class="flex items-center gap-3">
+          <img src="assets/images/logo.png" alt="VaultLLM" width="28" height="28" class="rounded opacity-90">
+          <div>
+            <span class="font-semibold">VaultLLM</span>
+            <span class="text-white/50 ml-2">— Your Intelligence. Locally Secured.</span>
+          </div>
+        </div>
+        <nav class="flex gap-6 text-white/60 text-xs">
+          <a href="services.html" class="hover:text-teal transition-colors">Services</a>
+          <a href="roi.html" class="hover:text-teal transition-colors">ROI</a>
+          <a href="faq.html" class="hover:text-teal transition-colors">FAQ</a>
+          <a href="contact.html" class="hover:text-teal transition-colors">Contact</a>
+          <a href="privacy.html" class="hover:text-teal transition-colors">Privacy Policy</a>
+        </nav>
+        <p class="text-white/40 text-xs">&copy; <span id="year"></span> VaultLLM. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

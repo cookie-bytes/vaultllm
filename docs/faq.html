@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — VaultLLM Private AI Nodes</title>
+  <meta name="description" content="Answers to common questions about VaultLLM: GDPR compliance, data residency, air-gapped operation, supported models, hardware, pricing, and onboarding.">
+  <link rel="canonical" href="https://vaultllm.uk/faq.html">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <link href="assets/css/fonts.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:   '#0B1F3A',
+            walnut: '#A0785A',
+            teal:   '#00C8C8',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+    <!-- SHARED HEADER — update all pages when changing -->
+  <header class="bg-navy text-white sticky top-0 z-50 border-b border-white/10" x-data="{ open: false }">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <a href="index.html" class="flex-shrink-0 hover:opacity-85 transition-opacity">
+        <img src="assets/images/logo.svg" alt="VaultLLM" class="h-10 w-auto block">
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+        <a href="index.html" class="px-3 py-1.5 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">Home</a>
+        <a href="services.html" class="px-3 py-1.5 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">Services</a>
+        <a href="roi.html" class="px-3 py-1.5 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">ROI</a>
+        <a href="faq.html" class="px-3 py-1.5 rounded-md bg-white/10 text-white">FAQ</a>
+        <a href="contact.html" class="ml-3 bg-teal text-navy font-semibold px-4 py-1.5 rounded-md hover:bg-teal/90 transition-colors">Contact</a>
+      </nav>
+      <button @click="open = !open" class="md:hidden p-2 rounded-md hover:bg-white/10 transition-colors" aria-label="Toggle navigation menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div x-show="open" x-transition class="md:hidden border-t border-white/10 px-4 pb-4">
+      <nav class="flex flex-col gap-1 pt-3 text-sm font-medium">
+        <a href="index.html" class="px-3 py-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">Home</a>
+        <a href="services.html" class="px-3 py-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">Services</a>
+        <a href="roi.html" class="px-3 py-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">ROI</a>
+        <a href="faq.html" class="px-3 py-2 rounded-md bg-white/10 text-white">FAQ</a>
+        <a href="contact.html" class="mt-1 px-3 py-2 rounded-md bg-teal text-navy font-semibold">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Page Hero -->
+    <section class="bg-navy text-white py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-teal text-sm font-semibold uppercase tracking-widest mb-3">Common Questions</p>
+        <h1 class="text-4xl font-semibold mb-4">Frequently Asked Questions</h1>
+        <p class="text-white/70 text-lg max-w-2xl">Everything you need to know about VaultLLM — from GDPR compliance to what happens if your hardware fails.</p>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="py-20 px-4 bg-white">
+      <div class="max-w-3xl mx-auto" x-data="{ open: null }">
+
+        <!-- Q1: GDPR -->
+        <div class="border-b border-gray-100">
+          <button @click="open = open === 1 ? null : 1"
+            class="w-full flex items-center justify-between py-6 text-left gap-4 focus:outline-none group">
+            <span class="font-semibold text-navy group-hover:text-teal transition-colors">Is VaultLLM GDPR compliant?</span>
+            <svg class="w-5 h-5 text-teal flex-shrink-0 transition-transform duration-200" :class="{ 'rotate-45': open === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+          </button>
+          <div x-show="open === 1" x-transition class="pb-6 text-gray-500 text-sm leading-relaxed">
+            <p>Yes — by architecture, not by policy. GDPR compliance for AI tools is difficult when using cloud services because your data is processed on third-party servers outside your control. With VaultLLM, all AI processing happens on hardware installed at your premises. Your data never travels to an external server, so there is no third-party data processor for AI queries, no cross-border data transfer, and no dependency on a vendor's privacy policy to protect your clients' information.</p>
+            <p class="mt-3">This approach satisfies the ICO's guidance on data minimisation and purpose limitation, and makes your AI use auditable and demonstrable to clients and regulators.</p>
+          </div>
+        </div>
+
+        <!-- Q2: Data residency -->
+        <div class="border-b border-gray-100">
+          <button @click="open = open === 2 ? null : 2"
+            class="w-full flex items-center justify-between py-6 text-left gap-4 focus:outline-none group">
+            <span class="font-semibold text-navy group-hover:text-teal transition-colors">Does my data stay on my premises?</span>
+            <svg class="w-5 h-5 text-teal flex-shrink-0 transition-transform duration-200" :class="{ 'rotate-45': open === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+          </button>
+          <div x-show="open === 2" x-transition class="pb-6 text-gray-500 text-sm leading-relaxed">
+            <p>Absolutely. The VaultLLM node processes every query locally, on hardware physically located in your office. No query, document, prompt, or response is transmitted to any external server — not to VaultLLM, not to any AI company, not to any cloud provider.</p>
+            <p class="mt-3">Remote management (for monitoring and updates) uses a minimal, read-only connection that does not transmit your business data. You can verify this at any time through your own network monitoring tools, and we can provide a network traffic audit on request.</p>
+          </div>
+        </div>
+
+        <!-- Q3: Air-gapped -->
+        <div class="border-b border-gray-100">
+          <button @click="open = open === 3 ? null : 3"
+            class="w-full flex items-center justify-between py-6 text-left gap-4 focus:outline-none group">
+            <span class="font-semibold text-navy group-hover:text-teal transition-colors">Can the node operate without an internet connection?</span>
+            <svg class="w-5 h-5 text-teal flex-shrink-0 transition-transform duration-200" :class="{ 'rotate-45': open === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+          </button>
+          <div x-show="open === 3" x-transition class="pb-6 text-gray-500 text-sm leading-relaxed">
+            <p>Yes. The VaultLLM node can run in a fully air-gapped environment — no internet connection required for day-to-day AI use. All models are stored locally on the node's storage, and inference runs entirely offline.</p>
+            <p class="mt-3">For our managed maintenance plan, a periodic internet connection is needed to receive updates (model upgrades, firmware patches). If your compliance environment prohibits any outbound connection, we offer an alternative where updates are delivered on physical media. Please mention this requirement during your discovery call.</p>
+          </div>
+        </div>
+
+        <!-- Q4: Supported models -->
+        <div class="border-b border-gray-100">
+          <button @click="open = open === 4 ? null : 4"
+            class="w-full flex items-center justify-between py-6 text-left gap-4 focus:outline-none group">
+            <span class="font-semibold text-navy group-hover:text-teal transition-colors">Which AI models does VaultLLM support?</span>
+            <svg class="w-5 h-5 text-teal flex-shrink-0 transition-transform duration-200" :class="{ 'rotate-45': open === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+          </button>
+          <div x-show="open === 4" x-transition class="pb-6 text-gray-500 text-sm leading-relaxed">
+            <p>We support a range of best-in-class open-source models, selected and configured for professional use. Current recommendations include Llama 3.3 70B (ideal for legal document work), Qwen 2.5 32B (excellent for financial data analysis), Mistral Small 22B (fast everyday use), and Phi-4 14B (structured reasoning and research).</p>
+            <p class="mt-3">Multiple models can be installed simultaneously so your team can choose the best tool for each task. We keep up with the rapidly evolving open-source AI landscape and push updates to your node as superior models become available.</p>
+            <p class="mt-3"><a href="services.html" class="text-teal underline hover:text-teal/80">See the full list of supported models on our Services page →</a></p>
+          </div>
+        </div>
+
+        <!-- Q5: Hardware failure -->
+        <div class="border-b border-gray-100">
+          <button @click="open = open === 5 ? null : 5"
+            class="w-full flex items-center justify-between py-6 text-left gap-4 focus:outline-none group">
+            <span class="font-semibold text-navy group-hover:text-teal transition-colors">What happens if the hardware fails?</span>
+            <svg class="w-5 h-5 text-teal flex-shrink-0 transition-transform duration-200" :class="{ 'rotate-45': open === 5 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+          </button>
+          <div x-show="open === 5" x-transition class="pb-6 text-gray-500 text-sm leading-relaxed">
+            <p>Our remote monitoring detects most hardware issues before they cause a service interruption. In the event of a failure, contact our support team and we will diagnose the issue remotely. For component failures, we dispatch a replacement part or engineer as quickly as possible — typically within two working days for UK mainland locations.</p>
+            <p class="mt-3">Major hardware replacement is handled under a separate agreement. We'll discuss your specific recovery time requirements during the discovery call and ensure your service agreement reflects them.</p>
+          </div>
+        </div>
+
+        <!-- Q6: Support -->
+        <div class="border-b border-gray-100">
+          <button @click="open = open === 6 ? null : 6"
+            class="w-full flex items-center justify-between py-6 text-left gap-4 focus:outline-none group">
+            <span class="font-semibold text-navy group-hover:text-teal transition-colors">How do I contact support, and how quickly will you respond?</span>
+            <svg class="w-5 h-5 text-teal flex-shrink-0 transition-transform duration-200" :class="{ 'rotate-45': open === 6 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+          </button>
+          <div x-show="open === 6" x-transition class="pb-6 text-gray-500 text-sm leading-relaxed">
+            <p>Support is available via telephone and email during UK business hours (Monday–Friday, 9am–5:30pm). All managed plan customers receive a dedicated support contact and a direct phone number for their account.</p>
+            <p class="mt-3">We guarantee a first response within one business day for all support requests. Critical issues (node down, complete service loss) are prioritised and we aim to respond within four business hours. Out-of-hours emergency support is available as an add-on for practices that require it.</p>
+          </div>
+        </div>
+
+        <!-- Q7: Onboarding timeline -->
+        <div class="border-b border-gray-100">
+          <button @click="open = open === 7 ? null : 7"
+            class="w-full flex items-center justify-between py-6 text-left gap-4 focus:outline-none group">
+            <span class="font-semibold text-navy group-hover:text-teal transition-colors">How long does it take to get up and running?</span>
+            <svg class="w-5 h-5 text-teal flex-shrink-0 transition-transform duration-200" :class="{ 'rotate-45': open === 7 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+          </button>
+          <div x-show="open === 7" x-transition class="pb-6 text-gray-500 text-sm leading-relaxed">
+            <p>From initial enquiry to a live node typically takes 3–5 weeks. This includes a discovery call, agreement, hardware build (5–10 working days), delivery, and on-site installation. The installation appointment itself takes approximately half a day — we handle everything, and your team can start using the AI the same afternoon.</p>
+            <p class="mt-3">If you have a specific go-live deadline, let us know during the discovery call and we'll do our best to accommodate it.</p>
+          </div>
+        </div>
+
+        <!-- Q8: Pricing -->
+        <div class="border-b border-gray-100">
+          <button @click="open = open === 8 ? null : 8"
+            class="w-full flex items-center justify-between py-6 text-left gap-4 focus:outline-none group">
+            <span class="font-semibold text-navy group-hover:text-teal transition-colors">What does "from £199/month" mean? What affects the price?</span>
+            <svg class="w-5 h-5 text-teal flex-shrink-0 transition-transform duration-200" :class="{ 'rotate-45': open === 8 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+          </button>
+          <div x-show="open === 8" x-transition class="pb-6 text-gray-500 text-sm leading-relaxed">
+            <p>The £199/month figure is the starting price for our standard managed maintenance plan. Your actual monthly fee depends on the number of nodes installed, the level of support coverage required, and whether you need any add-ons such as out-of-hours emergency support or extended SLAs.</p>
+            <p class="mt-3">We will provide a fixed, transparent quote before you commit to anything. There are no hidden fees, no per-query charges, and no usage caps. You pay a flat monthly fee regardless of how much your team uses the AI.</p>
+          </div>
+        </div>
+
+        <!-- Q9: Suitable for small teams -->
+        <div class="border-b border-gray-100">
+          <button @click="open = open === 9 ? null : 9"
+            class="w-full flex items-center justify-between py-6 text-left gap-4 focus:outline-none group">
+            <span class="font-semibold text-navy group-hover:text-teal transition-colors">Is VaultLLM suitable for a small firm with fewer than 10 staff?</span>
+            <svg class="w-5 h-5 text-teal flex-shrink-0 transition-transform duration-200" :class="{ 'rotate-45': open === 9 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+          </button>
+          <div x-show="open === 9" x-transition class="pb-6 text-gray-500 text-sm leading-relaxed">
+            <p>Yes. The hardware cost is a one-time investment regardless of team size — a sole practitioner and a 50-person firm pay the same for the node itself. For small firms, the primary value proposition is not cost savings over ChatGPT subscriptions (the ROI table shows this is more compelling at 20+ seats), but rather compliance certainty.</p>
+            <p class="mt-3">For a law firm or accountancy practice of any size, the ability to tell clients "your data is processed entirely on our own hardware, never sent to any cloud service" is a significant professional differentiator — and increasingly, a regulatory expectation.</p>
+          </div>
+        </div>
+
+        <!-- Q10: Choosing models -->
+        <div class="border-b border-gray-100">
+          <button @click="open = open === 10 ? null : 10"
+            class="w-full flex items-center justify-between py-6 text-left gap-4 focus:outline-none group">
+            <span class="font-semibold text-navy group-hover:text-teal transition-colors">Can I choose which AI model to use for different tasks?</span>
+            <svg class="w-5 h-5 text-teal flex-shrink-0 transition-transform duration-200" :class="{ 'rotate-45': open === 10 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+          </button>
+          <div x-show="open === 10" x-transition class="pb-6 text-gray-500 text-sm leading-relaxed">
+            <p>Yes. Multiple models can run simultaneously on your node, and your team can select the most appropriate model through the user interface. For example, you might use Llama 3.3 70B for detailed contract review and Mistral Small 22B for quick email drafting — each optimised for its task.</p>
+            <p class="mt-3">We configure the interface and model selection during installation, tailored to your team's most common workflows. Additional models can be added at any time.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 px-4 bg-navy text-white">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl font-semibold mb-4">Have a question we haven't answered?</h2>
+        <p class="text-white/70 mb-8 text-sm">Get in touch and we'll respond within one business day.</p>
+        <a href="contact.html" class="bg-teal text-navy font-semibold px-10 py-4 rounded-lg hover:bg-teal/90 transition-colors inline-block">
+          Contact Us
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SHARED FOOTER — update all pages when changing -->
+  <footer class="bg-navy text-white">
+    <div class="max-w-6xl mx-auto px-4 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+        <div class="flex items-center gap-3">
+          <img src="assets/images/logo.png" alt="VaultLLM" width="28" height="28" class="rounded opacity-90">
+          <div>
+            <span class="font-semibold">VaultLLM</span>
+            <span class="text-white/50 ml-2">— Your Intelligence. Locally Secured.</span>
+          </div>
+        </div>
+        <nav class="flex gap-6 text-white/60 text-xs">
+          <a href="services.html" class="hover:text-teal transition-colors">Services</a>
+          <a href="roi.html" class="hover:text-teal transition-colors">ROI</a>
+          <a href="faq.html" class="hover:text-teal transition-colors">FAQ</a>
+          <a href="contact.html" class="hover:text-teal transition-colors">Contact</a>
+          <a href="privacy.html" class="hover:text-teal transition-colors">Privacy Policy</a>
+        </nav>
+        <p class="text-white/40 text-xs">&copy; <span id="year"></span> VaultLLM. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

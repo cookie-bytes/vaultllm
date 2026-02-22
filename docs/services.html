@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — VaultLLM Managed Private AI Nodes</title>
+  <meta name="description" content="VaultLLM manages private NVIDIA RTX 5090 AI nodes for UK SMEs. Hardware, installation, monthly maintenance from £199/month. No cloud. Full GDPR compliance.">
+  <link rel="canonical" href="https://vaultllm.uk/services.html">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <link href="assets/css/fonts.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:   '#0B1F3A',
+            walnut: '#A0785A',
+            teal:   '#00C8C8',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+    <!-- SHARED HEADER — update all pages when changing -->
+  <header class="bg-navy text-white sticky top-0 z-50 border-b border-white/10" x-data="{ open: false }">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <a href="index.html" class="flex-shrink-0 hover:opacity-85 transition-opacity">
+        <img src="assets/images/logo.svg" alt="VaultLLM" class="h-10 w-auto block">
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+        <a href="index.html" class="px-3 py-1.5 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">Home</a>
+        <a href="services.html" class="px-3 py-1.5 rounded-md bg-white/10 text-white">Services</a>
+        <a href="roi.html" class="px-3 py-1.5 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">ROI</a>
+        <a href="faq.html" class="px-3 py-1.5 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">FAQ</a>
+        <a href="contact.html" class="ml-3 bg-teal text-navy font-semibold px-4 py-1.5 rounded-md hover:bg-teal/90 transition-colors">Contact</a>
+      </nav>
+      <button @click="open = !open" class="md:hidden p-2 rounded-md hover:bg-white/10 transition-colors" aria-label="Toggle navigation menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div x-show="open" x-transition class="md:hidden border-t border-white/10 px-4 pb-4">
+      <nav class="flex flex-col gap-1 pt-3 text-sm font-medium">
+        <a href="index.html" class="px-3 py-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">Home</a>
+        <a href="services.html" class="px-3 py-2 rounded-md bg-white/10 text-white">Services</a>
+        <a href="roi.html" class="px-3 py-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">ROI</a>
+        <a href="faq.html" class="px-3 py-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors">FAQ</a>
+        <a href="contact.html" class="mt-1 px-3 py-2 rounded-md bg-teal text-navy font-semibold">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Page Hero -->
+    <section class="bg-navy text-white py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-teal text-sm font-semibold uppercase tracking-widest mb-3">What We Offer</p>
+        <h1 class="text-4xl font-semibold mb-4">Managed Private AI Nodes</h1>
+        <p class="text-white/70 text-lg max-w-2xl">
+          We supply, install, and maintain enterprise-grade AI hardware in your office.
+          You get the power of modern AI — with zero cloud dependency.
+        </p>
+      </div>
+    </section>
+
+    <!-- Managed Maintenance Plan -->
+    <section class="py-20 px-4 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <div>
+            <p class="text-teal text-sm font-semibold uppercase tracking-widest mb-3">Monthly Plan</p>
+            <h2 class="text-3xl font-semibold text-navy mb-4">Managed Maintenance</h2>
+            <p class="text-gray-500 mb-6 leading-relaxed">
+              A single, predictable monthly fee covers everything needed to keep your AI node running
+              at peak performance — so your team can focus on client work, not IT.
+            </p>
+            <div class="bg-teal/5 border border-teal/20 rounded-xl p-6 inline-block mb-6">
+              <p class="text-gray-500 text-sm mb-1">Monthly maintenance from</p>
+              <p class="text-4xl font-semibold text-navy">£199<span class="text-lg font-normal text-gray-400">/month</span></p>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex gap-4 p-5 bg-gray-50 rounded-xl border border-gray-100">
+              <div class="w-8 h-8 bg-teal/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-navy text-sm mb-1">Remote Health Monitoring</h3>
+                <p class="text-gray-500 text-sm">24/7 monitoring of hardware temperatures, memory usage, and service uptime. We catch issues before you notice them.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 p-5 bg-gray-50 rounded-xl border border-gray-100">
+              <div class="w-8 h-8 bg-teal/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-navy text-sm mb-1">Model &amp; Firmware Updates</h3>
+                <p class="text-gray-500 text-sm">We push the latest open-source model releases and security patches to your node, tested and verified before deployment.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 p-5 bg-gray-50 rounded-xl border border-gray-100">
+              <div class="w-8 h-8 bg-teal/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-navy text-sm mb-1">UK-Based Telephone &amp; Email Support</h3>
+                <p class="text-gray-500 text-sm">Talk to a real engineer, based in the UK. No overseas call centres. Response within one business day guaranteed.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 p-5 bg-gray-50 rounded-xl border border-gray-100">
+              <div class="w-8 h-8 bg-teal/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-navy text-sm mb-1">Security &amp; Compliance Reviews</h3>
+                <p class="text-gray-500 text-sm">Annual review of your node's access controls and network configuration to maintain your GDPR and ICO compliance posture.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hardware Specs -->
+    <section class="py-20 px-4 bg-gray-50 border-y border-gray-100">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-teal text-sm font-semibold uppercase tracking-widest mb-3">The Hardware</p>
+          <h2 class="text-3xl font-semibold text-navy mb-3">Enterprise AI, Sized for an SME</h2>
+          <p class="text-gray-500 max-w-xl mx-auto">Powered by NVIDIA's RTX 5090 — the same GPU architecture used in research and enterprise AI deployments, in a compact workstation that fits under a desk.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 mb-10">
+          <div class="bg-white rounded-xl p-6 border border-gray-200 text-center">
+            <p class="text-3xl font-semibold text-navy mb-1">32 GB</p>
+            <p class="text-gray-500 text-sm font-medium mb-2">GPU VRAM</p>
+            <p class="text-gray-400 text-xs">Runs 70-billion parameter models at full quality. Handles large legal documents, complex contracts, and financial reports without truncation.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-gray-200 text-center">
+            <p class="text-3xl font-semibold text-navy mb-1">100+</p>
+            <p class="text-gray-500 text-sm font-medium mb-2">Tokens per Second</p>
+            <p class="text-gray-400 text-xs">Responses generated at human reading speed or faster. No waiting for cloud round-trips — output appears in real time.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-gray-200 text-center">
+            <p class="text-3xl font-semibold text-navy mb-1">Air-Gap</p>
+            <p class="text-gray-500 text-sm font-medium mb-2">Ready</p>
+            <p class="text-gray-400 text-xs">Can operate on a fully isolated network with no internet connection. Suitable for the most sensitive compliance environments.</p>
+          </div>
+        </div>
+        <div class="bg-navy/5 border border-navy/10 rounded-xl p-6 flex gap-4 items-start max-w-3xl mx-auto">
+          <svg class="w-6 h-6 text-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <p class="text-gray-600 text-sm leading-relaxed"><strong class="text-navy">In plain terms:</strong> Your node can read a 200-page contract, summarise it, extract key clauses, and flag risk areas — all in under a minute, entirely on your own hardware. No document ever leaves your building.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Onboarding Process -->
+    <section class="py-20 px-4 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-teal text-sm font-semibold uppercase tracking-widest mb-3">Getting Started</p>
+          <h2 class="text-3xl font-semibold text-navy mb-3">From Enquiry to Live AI in Weeks</h2>
+          <p class="text-gray-500">A straightforward process with no disruption to your team.</p>
+        </div>
+        <div class="space-y-6">
+          <div class="flex gap-6 items-start">
+            <div class="w-10 h-10 bg-teal text-navy rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0">1</div>
+            <div class="pt-1.5">
+              <h3 class="font-semibold text-navy mb-1">Discovery Call (30 min)</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">We discuss your team size, existing workflows, compliance requirements, and what you want to achieve with private AI. No technical knowledge needed.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 items-start">
+            <div class="w-10 h-10 bg-teal text-navy rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0">2</div>
+            <div class="pt-1.5">
+              <h3 class="font-semibold text-navy mb-1">Proposal &amp; Agreement</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">We send a written proposal including hardware specification, one-time cost, and monthly maintenance fee. You review, agree, and we invoice. Simple.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 items-start">
+            <div class="w-10 h-10 bg-teal text-navy rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0">3</div>
+            <div class="pt-1.5">
+              <h3 class="font-semibold text-navy mb-1">Hardware Build &amp; Dispatch</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Your node is built, tested, and pre-configured with your selected AI models before dispatch. Typical build time is 5–10 working days.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 items-start">
+            <div class="w-10 h-10 bg-teal text-navy rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0">4</div>
+            <div class="pt-1.5">
+              <h3 class="font-semibold text-navy mb-1">On-Site Installation &amp; Handover</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Our engineer installs the node, connects it to your network, and runs a live demonstration with your team. You leave the session ready to use your private AI on day one.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 items-start">
+            <div class="w-10 h-10 bg-walnut text-white rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0">✓</div>
+            <div class="pt-1.5">
+              <h3 class="font-semibold text-navy mb-1">Ongoing Managed Support</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">From month one, your maintenance plan kicks in. We monitor, update, and support your node remotely — you just use it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Models -->
+    <section class="py-20 px-4 bg-gray-50 border-t border-gray-100">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-teal text-sm font-semibold uppercase tracking-widest mb-3">AI Models</p>
+          <h2 class="text-3xl font-semibold text-navy mb-3">Best-in-Class Open Models, Privately Hosted</h2>
+          <p class="text-gray-500 max-w-xl mx-auto">We configure and manage the models best suited to your workflows. These run entirely on your hardware — no licensing fees, no usage caps.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-navy mb-1">Llama 3.3 70B</h3>
+                <p class="text-teal text-xs font-medium mb-2">Best for: Contract review, legal research, complex document summarisation</p>
+                <p class="text-gray-500 text-sm">Meta's flagship open model. Exceptional at understanding long legal documents, identifying obligations and risk clauses, and drafting professional correspondence.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-navy mb-1">Qwen 2.5 32B</h3>
+                <p class="text-teal text-xs font-medium mb-2">Best for: Financial data analysis, spreadsheet reasoning, report generation</p>
+                <p class="text-gray-500 text-sm">Outstanding numerical reasoning and structured data understanding. Ideal for accountants reviewing financial statements, preparing management accounts, or analysing client portfolios.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-navy mb-1">Mistral Small 22B</h3>
+                <p class="text-teal text-xs font-medium mb-2">Best for: Fast Q&amp;A, client email drafting, quick document queries</p>
+                <p class="text-gray-500 text-sm">Fast, efficient, and highly capable for day-to-day tasks. Perfect for team members who want quick answers or need to draft routine client communications at speed.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-navy mb-1">Phi-4 14B</h3>
+                <p class="text-teal text-xs font-medium mb-2">Best for: Research tasks, policy interpretation, structured reasoning</p>
+                <p class="text-gray-500 text-sm">Microsoft's compact reasoning model. Punches well above its size for research synthesis, regulatory guidance interpretation, and step-by-step analytical tasks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-gray-400 text-sm mt-8">Additional models available on request. We keep up with the rapidly evolving open-source AI landscape so you don't have to.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-4 bg-navy text-white">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold mb-4">Ready to get started?</h2>
+        <p class="text-white/70 mb-8">Book a 30-minute discovery call and we'll walk you through exactly how a VaultLLM node would integrate into your practice.</p>
+        <a href="contact.html" class="bg-teal text-navy font-semibold px-10 py-4 rounded-lg hover:bg-teal/90 transition-colors inline-block">
+          Book a Discovery Call
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SHARED FOOTER — update all pages when changing -->
+  <footer class="bg-navy text-white">
+    <div class="max-w-6xl mx-auto px-4 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+        <div class="flex items-center gap-3">
+          <img src="assets/images/logo.png" alt="VaultLLM" width="28" height="28" class="rounded opacity-90">
+          <div>
+            <span class="font-semibold">VaultLLM</span>
+            <span class="text-white/50 ml-2">— Your Intelligence. Locally Secured.</span>
+          </div>
+        </div>
+        <nav class="flex gap-6 text-white/60 text-xs">
+          <a href="services.html" class="hover:text-teal transition-colors">Services</a>
+          <a href="roi.html" class="hover:text-teal transition-colors">ROI</a>
+          <a href="faq.html" class="hover:text-teal transition-colors">FAQ</a>
+          <a href="contact.html" class="hover:text-teal transition-colors">Contact</a>
+          <a href="privacy.html" class="hover:text-teal transition-colors">Privacy Policy</a>
+        </nav>
+        <p class="text-white/40 text-xs">&copy; <span id="year"></span> VaultLLM. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
